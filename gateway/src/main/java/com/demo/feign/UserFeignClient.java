@@ -2,17 +2,11 @@ package com.demo.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "user-service")
+@FeignClient(name = "user-service", path = "/internal")
 public interface UserFeignClient {
-
-    @GetMapping("/internal/users")
-    List<String> getUserList();
-
-    @GetMapping("/user/{id}")
-    String getUser(@PathVariable("id") Long id);
+    @GetMapping("/users")
+    String getUserList();
 }

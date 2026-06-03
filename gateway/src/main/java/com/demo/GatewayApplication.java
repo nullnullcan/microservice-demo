@@ -7,8 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient // 开启服务发现
-@EnableFeignClients(basePackages = "com.demo.feign")  // 改为你的 Feign 接口所在包
-
+@EnableFeignClients(basePackages = "com.demo.feign")
 public class GatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);

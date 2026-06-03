@@ -1,6 +1,6 @@
 package com.demo.controller;
 
-import com.demo.client.UserFeignClient;
+import com.demo.feign.UserFeignClient;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
