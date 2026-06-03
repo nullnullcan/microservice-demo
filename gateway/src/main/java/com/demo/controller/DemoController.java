@@ -1,34 +1,33 @@
 package com.demo.controller;
 
 import com.demo.client.UserFeignClient;
-import com.demo.dubbo.UserDubboConsumer;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Import;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+
 
 @RestController
 public class DemoController {
 
-    @Autowired(required = false)
+    // 1. 为本地服务Bean指定名称 "userServiceImpl"
+    @Autowired
+    @Qualifier("userServiceImpl")
     private UserService localUserService;
 
-    @Autowired(required = false)
+    // 2. 为Feign远程服务Bean指定名称，这个Bean的名称通常就是FeignClient接口名小写 "userFeignClient"
+    @Autowired
+    @Qualifier("userFeignClient")
     private UserFeignClient userFeignClient;
-
-    @Autowired(required = false)
-    private UserDubboConsumer userDubboConsumer;
 
     @GetMapping("/list")
     public String getList() {
+        // 单体模式 (mvc) 下，注入的是 localUserService
+        // 微服务模式 (cloud) 下，注入的是 userFeignClient
         if (userFeignClient != null) {
             return userFeignClient.getUserList();
-        } else if (userDubboConsumer != null) {
-            return userDubboConsumer.getUserList();
         } else {
             return localUserService.getUserList();
         }
