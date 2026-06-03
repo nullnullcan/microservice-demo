@@ -15,29 +15,29 @@
     <artifactId>user-service</artifactId>
 
     <dependencies>
-    	<dependency>
-		    <groupId>com.demo</groupId>
-		    <artifactId>api-common</artifactId>
-		    <version>1.0.0</version>
-		</dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- Nacos 服务发现（版本由 BOM 控制） -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+
+        <!-- Dubbo 集成 -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>${dubbo.version}</version>
         </dependency>
+
+        <!-- Dubbo Nacos 注册中心支持 -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-nacos-spring-boot-starter</artifactId>
             <version>${dubbo.version}</version>
         </dependency>
     </dependencies>
-
 </project>

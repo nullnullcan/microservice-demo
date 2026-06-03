@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@EnableDiscoveryClient
-@EnableFeignClients
-@SpringBootApplication  // 统一启用 Feign（cloud 模式需要）
+@SpringBootApplication
+@EnableDiscoveryClient // 开启服务发现
+@EnableFeignClients    // 开启Feign调用
 public class GatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);

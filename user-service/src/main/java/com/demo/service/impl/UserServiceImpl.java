@@ -10,7 +10,7 @@ import java.util.List;
 @DubboService   // 同时暴露为 Dubbo 服务
 public class UserServiceImpl implements UserService {
     @Override
-    public List<String> getUserList() {
-        return List.of("Alice", "Bob", "Charlie");
+    public String getUserList(Long id) {
+        return "用户ID：" + id;
     }
 }

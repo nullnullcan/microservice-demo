@@ -15,37 +15,35 @@
     <artifactId>gateway</artifactId>
 
     <dependencies>
-        <!-- gateway 不能用 web，必须用 cloud-gateway 依赖 -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- gateway 不要直接依赖 user-service，会报错 -->
-        <!-- <dependency>
+        <!-- 依赖 user-service 模块（单体模式直接调用） -->
+        <dependency>
             <groupId>com.demo</groupId>
             <artifactId>user-service</artifactId>
             <version>${project.version}</version>
-        </dependency> -->
-       <!-- 公共接口依赖 ✅ 正确 -->
-        <dependency>
-            <groupId>com.demo</groupId>
-            <artifactId>api-common</artifactId>
-            <version>1.0.0</version>
         </dependency>
-        
+
+        <!-- OpenFeign -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+
+        <!-- Nacos 服务发现 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+
+        <!-- Dubbo 支持（可选，如果不需要可以注释，但保留以便切换） -->
         <dependency>
-        	<groupId>com.demo</groupId>
-        	<artifactId>user-service</artifactId>
-        	<version>1.0.0</version>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>${dubbo.version}</version>
         </dependency>
     </dependencies>
 </project>
