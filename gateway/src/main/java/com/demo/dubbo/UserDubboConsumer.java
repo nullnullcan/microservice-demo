@@ -8,10 +8,11 @@ import java.util.List;
 
 @Component
 public class UserDubboConsumer {
-    @DubboReference
+    // 👇 注释这行
+    // @DubboReference
     private UserService userService;
 
-    public String getUserList() {
-        return userService.getUserList();
+    public String testDubbo(){
+        return "test";
     }
 }

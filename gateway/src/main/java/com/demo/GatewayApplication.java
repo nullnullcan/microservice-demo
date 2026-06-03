@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient // 开启服务发现
-@EnableFeignClients(basePackages = "com.demo.feign")
+@EnableFeignClients(basePackages = "com.demo")
 public class GatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);

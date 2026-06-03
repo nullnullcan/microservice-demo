@@ -1,6 +1,5 @@
 package com.demo.service;
 
-import java.util.List;
 
 public interface UserService {
     String getUserList(Long id);
