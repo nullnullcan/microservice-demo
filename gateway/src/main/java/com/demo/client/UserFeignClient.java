@@ -8,5 +8,5 @@ import java.util.List;
 @FeignClient(name = "user-service", path = "/internal")
 public interface UserFeignClient {
     @GetMapping("/users")
-    List<String> getUserList();
+    String getUserList();
 }

@@ -15,19 +15,16 @@ import java.util.List;
 public class DemoController {
 
     @Autowired(required = false)
-    @ConditionalOnProperty(name = "spring.profiles.active", havingValue = "mvc", matchIfMissing = true)
     private UserService localUserService;
 
     @Autowired(required = false)
-    @ConditionalOnProperty(name = "spring.profiles.active", havingValue = "cloud")
     private UserFeignClient userFeignClient;
 
     @Autowired(required = false)
-    @ConditionalOnProperty(name = "spring.profiles.active", havingValue = "dubbo")
     private UserDubboConsumer userDubboConsumer;
 
     @GetMapping("/list")
-    public List<String> getList() {
+    public String getList() {
         if (userFeignClient != null) {
             return userFeignClient.getUserList();
         } else if (userDubboConsumer != null) {

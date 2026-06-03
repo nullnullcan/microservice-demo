@@ -11,7 +11,7 @@ public class UserDubboConsumer {
     @DubboReference
     private UserService userService;
 
-    public List<String> getUserList() {
+    public String getUserList() {
         return userService.getUserList();
     }
 }
