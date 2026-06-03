@@ -27,6 +27,12 @@
             <artifactId>user-service</artifactId>
             <version>${project.version}</version>
         </dependency> -->
+       <!-- 公共接口依赖 ✅ 正确 -->
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>api-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -35,6 +41,11 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>com.demo</groupId>
+        	<artifactId>user-service</artifactId>
+        	<version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>
